@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/Main.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+      <h1>Scripting Made Easy</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <h3>Select the Product for which the script needs to be generated:</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2 offset1 btn btn-primary" id="btn_ITR">ITR</div>
+      <div class="span2 offset1 btn btn-primary">EMD</div>
+      <div class="span2 offset1 btn btn-primary">TRP</div>
+    </div>
+    <br>
+
+    <!-- Start PNR Module-->
+    <div class="btn btn-primary" id="btn_PNR">
+      <div class="span6">
+      Enter PNR elements<i class="icon-arrow-down"></i>
+      </div>
+    </div>
+    <div id="Id_PNR" hidden>
+      <div class="row">
+        <div class="span6 btn" href="#modal_Pax" data-toggle="modal">Give the number of passengers</div>
+      </div>
+      <div class="row">
+        <div class="span6 btn " href="#modal_Contact" data-toggle="modal">Enter the contact Element</div>
+      </div>
+      <div class="row">
+        <div class="span6 btn" href="#modal_Segment" data-toggle="modal">Enter the segments</div>
+      </div>
+    </div>
+    <br>
+    <!--End PNR Module-->
+    <!-- Start: Pax Modal -->
+    <div id="modal_Pax" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">Enter the number of Passengers</div>
+      <div class="modal-body"><input type="text" value="1" id="pax_no"></div>
+      <div class="modal-footer">
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+         <button id="pax_save" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+    <!-- End: Pax Modal" -->
+    <!-- Start: Contact Modal -->
+    <div id="modal_Contact" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">Enter the contact elements</div>
+      <div class="modal-body">EMAIL: <input id="email_id" type="email"  placeholder="youremail@domain.com"> <p class="text-info">Enter multiple email address seperated by "," (comma)</p> <br> FAX: <input type="text" value="" id="fax_id"> <p class="text-info">Enter multiple fax numbers seperated by "," (comma)</p></div>
+      <div class="modal-footer">
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+         <button class="btn btn-primary"  id="contact_save">Save changes</button>
+      </div>
+    </div>
+    <!-- End: Contact:Modal -->
+
+    <!-- Start: Segments Module -->
+    <div id="modal_Segment" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">Enter the Segments</div>
+      <div class="modal-body">Enter the segment <input type="text" id="segment_seg"> <br> Enter corresponding date <input type="text" id="segment_date"> <br>Enter corresponding class <input type="text" id="segment_class"></div>
+      <div class="modal-footer">
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+         <button class="btn btn-primary" id="segment_add">Add More</button>
+      </div>
+    </div>
+
+    <!--End: Segment Modal -->
+
+    <!--Start Pricing Module -->
+    <div class="btn btn-primary" id="btn_Pricing">
+      <div class="span6">
+        Enter Pricing elements<i class="icon-arrow-down"></i>
+      </div>
+    </div>
+    <div id="Id_Pricing" hidden>
+      <div class="row">
+        <div class="span6 btn">Perform Manual Pricing</div>
+      </div>
+      <div class="row">
+        <div class="span6 btn">Perform Automatic Pricing</div>
+      </div>
+    </div>
+    <br>
+
+
+    <!-- End: Pricing Module -->
+
+    <!-- Start FOP Module -->
+    <div class="btn btn-primary" id="btn_FOP">
+      <div class="span6">
+      Enter FOP Element<i class="icon-arrow-down"></i>
+      </div>
+    </div>
+
+    <div id="Id_FOP" hidden>
+      <div class="row">
+        <div class="span6 btn" href="#modal_FOP" data-toggle="modal">Select for Cash, credit card, and cheque</div>
+      </div>
+      <div class="row">
+        <div class="span6 btn">Other FOP</div>
+      </div>
+
+    </div>
+    <br>
+
+    <!--Start: FOP Modal -->
+    <div id="modal_FOP" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">Enter the Payment Information</div>
+      <div class="modal-body">
+        Cash: <input type="text" id="fop_cash">  <br>
+        Credit Card: <input type="text" id="fop_cc"> <br>
+        Cheque: <input type="text" id="fop_cheque"> <br>
+
+        Enter pax number seperate by comma (,) for this FOP <input type="text" id="fop_pax">        
+      </div>
+      <div class="modal-footer">
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+         <button class="btn btn-primary" id="fop_add">Add More</button>
+      </div>
+    </div>
+    <!-- End: FOP Modal -->
+
+    <!--End FOP Module-->
+    <br>
+    <br>
+    <div class="btn btn-primary" id="create_script"  href="#modal_script" data-toggle="modal"><div class="span6">Create Script</div></div>
+
+    <div id="modal_script" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">This is the script</div>
+      <div class="modal-body"><textarea width=400 cols="100" rows="100" id="txtarea"></textarea></div>
+      <div class="modal-footer">
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+         <button class="btn btn-primary" data-dismiss="modal" id="segment_add">Add More</button>
+      </div>
+    </div>
+
+    <div class="btn btn-primary" id="write_script"><div class="span6">Write to File</div></div>
+
+  </div>
+
+    
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
